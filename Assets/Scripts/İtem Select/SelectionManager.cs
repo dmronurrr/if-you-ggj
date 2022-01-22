@@ -17,12 +17,19 @@ public class SelectionManager : MonoBehaviour
     public GameObject image;
     public Text text;
     public float distance;
+    Counter counter;
+    public Renderer render;
+    private void Start() {
+        counter=new Counter();
+        
+    }
     private void Update()
     {
         
         _distance=distance;
         if(Input.GetKey(KeyCode.Q)&&paper)
         {
+            render.enabled=true;
             mouse.enabled=true;
             paper=false;
         }
@@ -46,11 +53,14 @@ public class SelectionManager : MonoBehaviour
             if(selection.CompareTag("Messenger")&&_distance<maxDistance)
             {
                 messenger=selection.gameObject.GetComponent<Messenger>();
+                render=messenger.GetComponent<Renderer>();
                 if(Input.GetKey(KeyCode.E)&&paper==false)
                 {
+                    render.enabled=false;
                     text.text=messenger.mesage;
                     mouse.enabled=false;
                     paper=true; 
+                    counter.Up();
                 }  
             }
             Debug.Log(hit);
