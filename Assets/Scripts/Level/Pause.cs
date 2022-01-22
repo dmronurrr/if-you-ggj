@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Pause : MonoBehaviour
+{
+    public bool isPaused=false;
+    public GameObject canvas;
+    private void Start() 
+    {
+        Time.timeScale=1;
+        isPaused=false;
+    }
+    public void Update()
+    {
+        if(!isPaused)
+        StopGame();
+        else
+        StartGame();
+    }
+    public void StartGame()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState=CursorLockMode.Locked;
+            Time.timeScale=1;
+            isPaused=false;
+            canvas.SetActive(false);
+        }
+    }
+    public void StopGame()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState=CursorLockMode.None;
+            Time.timeScale=0;
+            isPaused=true;
+             canvas.SetActive(true);
+        }
+    }
+    public void StartGameWithButton()
+    {
+        Cursor.lockState=CursorLockMode.Locked;
+        Time.timeScale=1;
+        isPaused=false;
+        canvas.SetActive(false);
+    }
+}
