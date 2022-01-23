@@ -12,6 +12,10 @@ public class LevelController: MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
     
 
 }

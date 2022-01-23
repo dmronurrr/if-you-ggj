@@ -4074,6 +4074,7 @@ MonoBehaviour:
   inPosition: 0
   paper: 0
   playerHands: {fileID: 1949561535}
+  playerController: {fileID: 1522413954}
   cam: {fileID: 870927685}
   takeableObj: {fileID: 1874315583}
   maxDistance: 3

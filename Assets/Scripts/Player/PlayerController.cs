@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField]private CharacterController controller;
     [Header("Character Variables")]
-    [SerializeField]private float speed=12f;
+    public float speed=12f;
     [Header("Gravity")]
     [SerializeField]private float gravity=-9.81f;
     [SerializeField]private Transform groundCheck;

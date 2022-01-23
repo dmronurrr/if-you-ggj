@@ -9,6 +9,7 @@ public class SelectionManager : MonoBehaviour
     public MouseLook mouse;
     public bool inPosition,paper;
     public Transform playerHands;
+    public PlayerController playerController;
     public Camera cam;
     float _distance;
     public TakeableObj takeableObj;
@@ -29,6 +30,7 @@ public class SelectionManager : MonoBehaviour
         _distance=distance;
         if(Input.GetKey(KeyCode.Q)&&paper)
         {
+            playerController.speed=2;
             render.enabled=true;
             mouse.enabled=true;
             paper=false;
@@ -51,11 +53,12 @@ public class SelectionManager : MonoBehaviour
                 }  
             }
             if(selection.CompareTag("Messenger")&&_distance<maxDistance)
-            {
+            {  
                 messenger=selection.gameObject.GetComponent<Messenger>();
                 render=messenger.GetComponent<Renderer>();
                 if(Input.GetKey(KeyCode.E)&&paper==false)
                 {
+                    playerController.speed=0;
                     render.enabled=false;
                     text.text=messenger.mesage;
                     mouse.enabled=false;
