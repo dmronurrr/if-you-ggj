@@ -49,6 +49,7 @@ public class SelectionManager : MonoBehaviour
             Transform selection = hit.transform;
             if(selection.CompareTag(selectableTag)&&_distance<maxDistance)
             {
+                Debug.Log("çalışıyor");
                 if(Input.GetKey(KeyCode.E)&&inPosition==false)
                 {
                     inPosition=true;
@@ -81,6 +82,7 @@ public class SelectionManager : MonoBehaviour
                 {
                     if(Input.GetKey(KeyCode.E))
                     {
+                        piano=true;
                         takeableObj.NextLevelWithAnimation();
                     }
                 }
@@ -89,5 +91,5 @@ public class SelectionManager : MonoBehaviour
             time=counter.counter;
         }
     }
-    
+   public bool piano; 
 }
