@@ -16,10 +16,12 @@ public class SelectionManager : MonoBehaviour
     public float maxDistance;
     public Messenger messenger;
     public GameObject image;
+    public bool isPlay;
     public Text text;
     public float distance;
     Counter counter;
     public Renderer render;
+    public int time;
     private void Start() {
         counter=new Counter();
         
@@ -66,7 +68,26 @@ public class SelectionManager : MonoBehaviour
                     counter.Up();
                 }  
             }
+            if(selection.CompareTag("Radio")&&_distance<maxDistance)
+            {
+                if(Input.GetKey(KeyCode.E))
+                {
+                    isPlay=true;
+                }
+            }
+            if(selection.CompareTag("Piano")&&_distance<maxDistance)
+            {
+                if(time>=2)
+                {
+                    if(Input.GetKey(KeyCode.E))
+                    {
+                        takeableObj.NextLevelWithAnimation();
+                    }
+                }
+            }
             Debug.Log(hit);
+            time=counter.counter;
         }
     }
+    
 }

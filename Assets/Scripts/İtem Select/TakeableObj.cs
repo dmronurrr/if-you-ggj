@@ -21,10 +21,7 @@ public class TakeableObj : MonoBehaviour
             boxCollider.enabled=false;
             if(Input.GetMouseButton(0))
             {
-                Destroy(mouseLook);
-                Destroy(playerController);
-                Destroy(this.gameObject);
-                animator.Play("CloseEyes");
+                NextLevelWithAnimation();
             }
 
             
@@ -34,5 +31,12 @@ public class TakeableObj : MonoBehaviour
             rb.isKinematic=false;
             boxCollider.enabled=true;
         }
+    }
+    public void NextLevelWithAnimation()
+    {
+        Destroy(mouseLook);
+        Destroy(playerController);
+        Destroy(this.gameObject);
+        animator.Play("CloseEyes");
     }
 }
