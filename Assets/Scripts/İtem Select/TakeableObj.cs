@@ -11,6 +11,7 @@ public class TakeableObj : MonoBehaviour
     [SerializeField]private BoxCollider boxCollider;
     [SerializeField]private Transform playerHands;
     [SerializeField]private Animator animator;
+    [SerializeField]Pill pill;
     private void Update() 
     {
         if(selectionManager.inPosition)
@@ -20,8 +21,8 @@ public class TakeableObj : MonoBehaviour
             rb.isKinematic=true;
             boxCollider.enabled=false;
             if(Input.GetMouseButton(0))
-            {
-                NextLevelWithAnimation();
+            {    
+                    selectionManager.go();     
             }
 
             

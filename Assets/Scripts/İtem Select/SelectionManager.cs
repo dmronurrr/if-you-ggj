@@ -83,13 +83,25 @@ public class SelectionManager : MonoBehaviour
                     if(Input.GetKey(KeyCode.E))
                     {
                         piano=true;
-                        takeableObj.NextLevelWithAnimation();
+                        go();
                     }
+                }
+            }
+            if(selection.CompareTag("Pill")&&_distance<maxDistance)
+            {
+                if(Input.GetKey(KeyCode.E))
+                {
+                    isTake=true;
                 }
             }
             Debug.Log(hit);
             time=counter.counter;
         }
+    }
+    public bool isTake;
+    public void go()
+    {
+        takeableObj.NextLevelWithAnimation();
     }
    public bool piano; 
 }
