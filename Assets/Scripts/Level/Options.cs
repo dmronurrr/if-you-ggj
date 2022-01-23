@@ -7,10 +7,11 @@ public class Options : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public float vol;
+    
     public void SetVolume(float volume)
     {
-        vol=volume;
         PlayerPrefs.SetFloat("Vol",vol);
+        vol=volume;
         audioMixer.SetFloat("Volume",volume);
     }
     public void SetQuality(int qualityIndex)

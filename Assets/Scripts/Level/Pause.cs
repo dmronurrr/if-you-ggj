@@ -6,13 +6,18 @@ public class Pause : MonoBehaviour
 {
     public bool isPaused=false;
     public GameObject canvas;
+    public AudioSource audioSource;
+    public float voice;
     private void Start() 
     {
+        
         Time.timeScale=1;
         isPaused=false;
     }
     public void Update()
     {
+        voice = PlayerPrefs.GetFloat("Vol");
+        audioSource.volume=voice;
         if(!isPaused)
         StopGame();
         else
@@ -22,6 +27,7 @@ public class Pause : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            audioSource.Play();
             Cursor.lockState=CursorLockMode.Locked;
             Time.timeScale=1;
             isPaused=false;
@@ -32,6 +38,7 @@ public class Pause : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            audioSource.Pause();
             Cursor.lockState=CursorLockMode.None;
             Time.timeScale=0;
             isPaused=true;
@@ -40,6 +47,7 @@ public class Pause : MonoBehaviour
     }
     public void StartGameWithButton()
     {
+        audioSource.Play();
         Cursor.lockState=CursorLockMode.Locked;
         Time.timeScale=1;
         isPaused=false;
