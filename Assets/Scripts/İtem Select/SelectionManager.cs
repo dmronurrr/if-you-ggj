@@ -22,13 +22,13 @@ public class SelectionManager : MonoBehaviour
     Counter counter;
     public Renderer render;
     public int time;
+    string manyLines ;
     private void Start() {
-        counter=new Counter();
+        counter=new Counter(); 
         
     }
     private void Update()
-    {
-        
+    { 
         _distance=distance;
         if(Input.GetKey(KeyCode.Q)&&paper)
         {

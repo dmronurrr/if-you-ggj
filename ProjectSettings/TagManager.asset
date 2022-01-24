@@ -8,6 +8,8 @@ TagManager:
   - Selectable
   - Radio
   - Piano
+  - Breakable
+  - Pill
   layers:
   - Default
   - TransparentFX

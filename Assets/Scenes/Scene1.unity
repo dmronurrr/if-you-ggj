@@ -4777,6 +4777,8 @@ MonoBehaviour:
   distance: 0
   render: {fileID: 0}
   time: 0
+  isTake: 0
+  piano: 0
 --- !u!4 &1618713736
 Transform:
   m_ObjectHideFlags: 0
@@ -5362,6 +5364,7 @@ MonoBehaviour:
   boxCollider: {fileID: 1874315581}
   playerHands: {fileID: 1370780585}
   animator: {fileID: 676922611}
+  pill: {fileID: 0}
 --- !u!136 &1874315584
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6237,6 +6240,10 @@ PrefabInstance:
     - target: {fileID: 7271847379875037533, guid: 30257a38e4abc01419458c6ca1a58a1b, type: 3}
       propertyPath: m_Name
       value: ground_lw
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271847379875037533, guid: 30257a38e4abc01419458c6ca1a58a1b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8043739025099381735, guid: 30257a38e4abc01419458c6ca1a58a1b, type: 3}
       propertyPath: m_RootOrder

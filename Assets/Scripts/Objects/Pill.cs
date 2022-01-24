@@ -13,13 +13,14 @@ public class Pill : MonoBehaviour
     [SerializeField]private Transform playerHands;
     [SerializeField]private Renderer render;
     public GameObject breakable;
+    public GameObject ground;
     public float distance;
     private void Update() 
     {
         breakable=GameObject.FindGameObjectWithTag("Breakable");
         if(breakable==null && canAttack)
         {
-            //finish
+            Destroy(ground);
         }
         if(canAttack)
         {
@@ -29,11 +30,11 @@ public class Pill : MonoBehaviour
         {
             distance= Vector3.Distance(playerHands.position,hit.transform.position);
             Transform selection = hit.transform;
-            if(selection.CompareTag("Breakable")&&distance<3)
+            if(selection.CompareTag("Breakable")&&distance<6)
             {
                 if(Input.GetMouseButton(0))
                 {
-                    Destroy(selection);
+                    Destroy(selection.gameObject);
                 }
             }
         }

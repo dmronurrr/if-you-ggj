@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class PlayerController : MonoBehaviour
         
         Vector3 move = transform.right * x + transform.forward * z;
         
-        controller.Move(move*speed*Time.deltaTime);
+        if(isGrounded)
+        {
+            controller.Move(move*speed*Time.deltaTime);
+        }
 
         
         velocity.y+=gravity*Time.deltaTime; 
@@ -39,6 +43,13 @@ public class PlayerController : MonoBehaviour
         else
         {
         
+        }
+    }
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
