@@ -4,53 +4,49 @@ using UnityEngine;
 
 public class Pill : MonoBehaviour
 {
-    public bool isUsing;
-    public bool canAttack;
-    public SelectionManager selectionManager;
-    public Camera cam;
     [SerializeField]private Rigidbody rb;
     [SerializeField]private BoxCollider boxCollider;
     [SerializeField]private Transform playerHands;
     [SerializeField]private Renderer render;
-    public GameObject breakable;
-    public GameObject ground;
-    public float distance;
-    private void Update() 
-    {
-        breakable=GameObject.FindGameObjectWithTag("Breakable");
-        if(breakable==null && canAttack)
+    LevelController levelController;
+    public bool canAttack;
+    
+    public bool isHolding=false;
+    private void Start() {
+    levelController=GameObject.Find("EventSystem").GetComponent<LevelController>();
+    }
+    public void OnHand()
+    { 
+        this.transform.position=playerHands.position;
+        this.transform.rotation=playerHands.rotation;
+        rb.isKinematic=true;
+        boxCollider.enabled=false;
+        isHolding=true;
+        if(levelController.index!=3)
         {
-            Destroy(ground);
-        }
-        if(canAttack)
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if(Physics.Raycast(ray,out hit))
-        {
-            distance= Vector3.Distance(playerHands.position,hit.transform.position);
-            Transform selection = hit.transform;
-            if(selection.CompareTag("Breakable")&&distance<6)
-            {
-                if(Input.GetMouseButton(0))
-                {
-                    Destroy(selection.gameObject);
-                }
+            if(Input.GetMouseButton(0))
+            { 
+            levelController.StartCoroutine(nameof(levelController.NextLevel));
+            render.enabled=false;
+            isHolding=false;
             }
         }
-        }
-        if(selectionManager.isTake)
-        {
-            this.transform.position=playerHands.position;
-            this.transform.rotation=playerHands.rotation;
-            rb.isKinematic=true;
-            boxCollider.enabled=false;
+        else
+        {   
             if(Input.GetMouseButton(0))
             {
-                render.enabled=false;
-                canAttack=true;
-
+            render.enabled=false;
+            isHolding=false; 
+            canAttack=true;
             }
+        }
+        
+    } 
+    private void Update() 
+    {
+        if(isHolding)
+        {
+            OnHand();
         }
         else
         {
@@ -58,5 +54,4 @@ public class Pill : MonoBehaviour
             boxCollider.enabled=true;
         }
     }
-    
 }

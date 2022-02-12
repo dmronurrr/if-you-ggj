@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534584538a7eaa042b27d0a7c78791e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
 --- !u!114 &1289113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,6 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534584538a7eaa042b27d0a7c78791e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 2
 --- !u!1 &487803522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,7 +2609,7 @@ GameObject:
   - component: {fileID: 744728528}
   - component: {fileID: 744728534}
   m_Layer: 0
-  m_Name: Controller
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2976,6 +2978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828210108}
   - component: {fileID: 828210107}
+  - component: {fileID: 828210109}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
@@ -2992,27 +2995,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 828210106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47af6464bec468243a56a190ebb28b55, type: 3}
+  m_Script: {fileID: 11500000, guid: 4520a59d8d4f2a445bda8a06b27106a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectableTag: Selectable
-  mouse: {fileID: 1635372258}
-  inPosition: 0
-  paper: 0
-  playerHands: {fileID: 1419867780}
-  playerController: {fileID: 744728529}
-  cam: {fileID: 1635372255}
-  takeableObj: {fileID: 1283515109}
+  holdSomething: 0
   maxDistance: 3
   messenger: {fileID: 0}
-  image: {fileID: 1757815576}
-  isPlay: 0
-  text: {fileID: 1780184205}
-  distance: 0
-  render: {fileID: 0}
-  time: 0
-  isTake: 0
-  piano: 0
+  hitObj: {fileID: 0}
+  holdObj: {fileID: 0}
 --- !u!4 &828210108
 Transform:
   m_ObjectHideFlags: 0
@@ -3027,6 +3018,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &828210109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828210106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abfbc6bfd640e049b3f966c4db11792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &848400836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3662,12 +3665,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c25121f60a46540ae3ced5157f33f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionManager: {fileID: 828210107}
+  render: {fileID: 0}
   mesage: Today is thursday and it's almost 12. I start the day by doing my favorite
     thing. By writing letters. I'm having so much fun with the other people here.
     Their voice makes me happy. I spend my day reading books and listening to the
     radio.  And i hate pianos!    Olivia
-  paper: {fileID: 1757815576}
+  text: {fileID: 1780184205}
+  image: {fileID: 1757815576}
 --- !u!54 &1055628845
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4161,7 +4165,6 @@ GameObject:
   - component: {fileID: 1283515112}
   - component: {fileID: 1283515111}
   - component: {fileID: 1283515110}
-  - component: {fileID: 1283515109}
   m_Layer: 0
   m_Name: w
   m_TagString: Untagged
@@ -4169,26 +4172,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1283515109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283515108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2c84c4b7eaa8646a677a65a8337189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionManager: {fileID: 828210107}
-  mouseLook: {fileID: 1635372258}
-  playerController: {fileID: 744728529}
-  rb: {fileID: 1283515110}
-  boxCollider: {fileID: 1283515111}
-  playerHands: {fileID: 1958410014}
-  animator: {fileID: 1289115}
-  pill: {fileID: 0}
 --- !u!54 &1283515110
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4991,7 +4974,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 59.884224
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5667,9 +5650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c25121f60a46540ae3ced5157f33f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionManager: {fileID: 828210107}
+  render: {fileID: 0}
   mesage: I hate radio's so much. Please dont open radio
-  paper: {fileID: 1757815576}
+  text: {fileID: 1780184205}
+  image: {fileID: 1757815576}
 --- !u!54 &1768199392
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5773,7 +5757,7 @@ GameObject:
   - component: {fileID: 1780184206}
   - component: {fileID: 1780184205}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6329,7 +6313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb43515284409a47a3fd679fc57d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionManager: {fileID: 828210107}
 --- !u!4 &994435436691441727
 Transform:
   m_ObjectHideFlags: 0

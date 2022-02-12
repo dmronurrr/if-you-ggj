@@ -1881,6 +1881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534584538a7eaa042b27d0a7c78791e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
 --- !u!114 &676922613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4053,7 +4054,7 @@ GameObject:
   - component: {fileID: 1522413953}
   - component: {fileID: 1522413958}
   m_Layer: 0
-  m_Name: Controller
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4742,6 +4743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618713736}
   - component: {fileID: 1618713735}
+  - component: {fileID: 1618713737}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
@@ -4758,27 +4760,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1618713734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47af6464bec468243a56a190ebb28b55, type: 3}
+  m_Script: {fileID: 11500000, guid: 4520a59d8d4f2a445bda8a06b27106a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectableTag: Selectable
-  mouse: {fileID: 870927689}
-  inPosition: 0
-  paper: 0
-  playerHands: {fileID: 1949561535}
-  playerController: {fileID: 1522413954}
-  cam: {fileID: 870927685}
-  takeableObj: {fileID: 1874315583}
+  holdSomething: 0
   maxDistance: 3
   messenger: {fileID: 0}
-  image: {fileID: 666273185}
-  isPlay: 0
-  text: {fileID: 1913041689}
-  distance: 0
-  render: {fileID: 0}
-  time: 0
-  isTake: 0
-  piano: 0
+  hitObj: {fileID: 0}
+  holdObj: {fileID: 0}
 --- !u!4 &1618713736
 Transform:
   m_ObjectHideFlags: 0
@@ -4793,6 +4783,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618713737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618713734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abfbc6bfd640e049b3f966c4db11792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1668899981 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2552963696066180861, guid: 2882af4517b29f046877d687e7f1e5fd, type: 3}
@@ -4896,6 +4898,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4263821186968888134, guid: eabd5ca490d7df143948d4e6f3ee1f15, type: 3}
   m_PrefabInstance: {fileID: 4036649516169394686}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1682339341 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7190350123845320610, guid: eabd5ca490d7df143948d4e6f3ee1f15, type: 3}
+  m_PrefabInstance: {fileID: 4036649516169394686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1682339343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4908,10 +4915,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c25121f60a46540ae3ced5157f33f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionManager: {fileID: 1618713735}
+  render: {fileID: 1682339341}
   mesage: ' Can you write? Are you afraid of your boss? Take your medicine from the
     other table then!!'
-  paper: {fileID: 666273185}
+  text: {fileID: 1913041689}
+  image: {fileID: 666273185}
 --- !u!65 &1682339344
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5291,13 +5299,12 @@ GameObject:
   - component: {fileID: 1874315580}
   - component: {fileID: 1874315586}
   - component: {fileID: 1874315585}
-  - component: {fileID: 1874315584}
-  - component: {fileID: 1874315583}
   - component: {fileID: 1874315582}
   - component: {fileID: 1874315581}
+  - component: {fileID: 1874315583}
   m_Layer: 0
-  m_Name: Capsule (3)
-  m_TagString: Selectable
+  m_Name: Pill
+  m_TagString: Pill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5354,31 +5361,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1874315579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2c84c4b7eaa8646a677a65a8337189, type: 3}
+  m_Script: {fileID: 11500000, guid: fddd8e884ea92484e983e4b96c0febbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionManager: {fileID: 1618713735}
-  mouseLook: {fileID: 870927689}
-  playerController: {fileID: 1522413954}
   rb: {fileID: 1874315582}
   boxCollider: {fileID: 1874315581}
   playerHands: {fileID: 1370780585}
-  animator: {fileID: 676922611}
-  pill: {fileID: 0}
---- !u!136 &1874315584
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874315579}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  render: {fileID: 1874315585}
+  canAttack: 0
+  isHolding: 0
 --- !u!23 &1874315585
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5864,6 +5855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534584538a7eaa042b27d0a7c78791e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 1
 --- !u!1 &2104063939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7533721017616311406, guid: 44bb6b2f462ca334d8440dfffc735732, type: 3}

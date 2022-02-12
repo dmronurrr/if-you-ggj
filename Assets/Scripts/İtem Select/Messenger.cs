@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class Messenger : MonoBehaviour
 {
-    public SelectionManager selectionManager;
+    public Renderer render;
     public string mesage;
-    public GameObject paper;
-    private void Update()
-    {
-        if(selectionManager.paper)
-        {
-            paper.SetActive(true);
-        }
-        else
-        {
-           paper.SetActive(false);
-        }
+    public Text text;
+    public GameObject image;
+    private void Start() {
+    render=GetComponent<Renderer>();
     }
+    public void OpenMessenger()
+    {
+        text.text=mesage;
+        image.SetActive(true); 
+        render.enabled=true;
+    }
+    public void CloseMessenger()
+    {
+        image.SetActive(false);
+        render.enabled=false;
+    }   
 }

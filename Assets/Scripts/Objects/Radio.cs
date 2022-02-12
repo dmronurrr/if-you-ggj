@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Radio : MonoBehaviour
 {
-    public SelectionManager selectionManager;
+    public NewSelectionManager selectionManager;
     public Pause pauseManager;
     public AudioSource audioSource,headSource;
     public float timer=3;
     public bool isStop;
     
     private void Update()
+    {
+        
+    }
+    public void PlayRadio()
     {
         if(isStop)
         {
@@ -24,7 +28,7 @@ public class Radio : MonoBehaviour
         {
             audioSource.Pause();
         }
-        else if(!pauseManager.isPaused&&selectionManager.isPlay)
+        else if(!pauseManager.isPaused)
         {
             if(!audioSource.isPlaying)
             {

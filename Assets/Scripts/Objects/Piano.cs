@@ -1,21 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Piano : MonoBehaviour
 {
     AudioSource audioSource;
-    public SelectionManager selectionManager;
-
-    private void Start() {
-        audioSource=GetComponent<AudioSource>();
-    }
-    private void Update() 
+    LevelController levelController;
+    private void Start() 
     {
-        if(selectionManager.piano)
-        {
-            if(!audioSource.isPlaying)
-            audioSource.Play();
-        }
+        audioSource=GetComponent<AudioSource>();  
+        levelController=GameObject.Find("EventSystem").GetComponent<LevelController>(); 
     }
+    public void PlayPiano()
+    {
+            if(!audioSource.isPlaying)
+            audioSource.Play(); 
+            levelController.StartCoroutine(nameof(levelController.NextLevel)); 
+    } 
 }
