@@ -10,6 +10,7 @@ TagManager:
   - Piano
   - Breakable
   - Pill
+  - Choice
   layers:
   - Default
   - TransparentFX

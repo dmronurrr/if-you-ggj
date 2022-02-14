@@ -10,6 +10,12 @@ public class LevelController: MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public void StartGame()
+    {
+        PlayerPrefs.DeleteKey("Ending");
+        PlayerPrefs.DeleteKey("LevelIndex");
+        SceneManager.LoadScene("Scene1");
+    }
     public void Quit()
     {
         Application.Quit();
@@ -23,5 +29,18 @@ public class LevelController: MonoBehaviour
         mouse.enabled=false;
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);   
+    }
+    public void LastLevel()
+    {
+        EndingCalculate endingCalculate=GameObject.Find("EndingCalculate").GetComponent<EndingCalculate>();
+        if(endingCalculate.ending>10)
+        {
+            //SceneManager.LoadScene("Scene2");
+        }
+        else
+        {
+            //SceneManager.LoadScene("Scene1");
+        }
+        
     }
 }

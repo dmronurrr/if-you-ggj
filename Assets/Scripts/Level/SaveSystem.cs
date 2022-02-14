@@ -13,12 +13,11 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveGame()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("LevelIndex");
         PlayerPrefs.SetInt("LevelIndex",SceneManager.GetActiveScene().buildIndex);
     }
     public void LoadGame()
     {
-        levelInt=PlayerPrefs.GetInt("LevelIndex");
         SceneManager.LoadScene(levelInt,LoadSceneMode.Single);
     }
 }
