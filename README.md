@@ -4,4 +4,8 @@
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
 
 # IF YOU
-![cover](docs/bg.png)
+![screenshot](docs/1.png)
+![screenshot](docs/2.png)
+![screenshot](docs/3.png)
+![screenshot](docs/4.png)
+![screenshot](docs/5.png)
