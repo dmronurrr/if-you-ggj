@@ -11,6 +11,7 @@ TagManager:
   - Breakable
   - Pill
   - Choice
+  - Interactable
   layers:
   - Default
   - TransparentFX

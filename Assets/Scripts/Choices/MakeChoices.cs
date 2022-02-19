@@ -21,7 +21,11 @@ public class MakeChoices : MonoBehaviour
         text.text=currentChoice;
         endingCalculate=GameObject.Find("EndingCalculate").GetComponent<EndingCalculate>();
     }
-    public void IsActive()
+    public void Deactive()
+    {
+        this.gameObject.SetActive(false);
+    }
+    public void Active()
     {
         this.gameObject.SetActive(true);
     }

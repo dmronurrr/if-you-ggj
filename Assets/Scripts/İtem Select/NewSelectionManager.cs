@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 public class NewSelectionManager : MonoBehaviour
 {
+    public bool holdSomething=false;
+    [Header("Selection Tag's")]
     [SerializeField]private string selectableTag="Selectable";
     MouseLook mouse;
-    public bool holdSomething=false;
     PlayerController playerController;
     Camera cam;
     Pill pill;
     float distance;
+    [Header("Distance")]
     public float maxDistance;
+    [Header("Needed Objects")]
     public Messenger messenger;
     public GameObject hitObj;
     public GameObject holdObj;
@@ -82,6 +85,14 @@ public class NewSelectionManager : MonoBehaviour
                         }
                     }
                  
+                 break;
+                 case "Interactable":
+                    if(Input.GetKey(KeyCode.E))
+                    {
+                        InteractableText interactable=hitObj.GetComponent<InteractableText>();
+                        interactable.Interact();
+                        break;
+                    }
                  break;
             }      
             }
