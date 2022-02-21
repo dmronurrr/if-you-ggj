@@ -2998,8 +2998,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4520a59d8d4f2a445bda8a06b27106a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectableTag: Selectable
   holdSomething: 0
+  selectableTag: Selectable
   maxDistance: 3
   messenger: {fileID: 0}
   hitObj: {fileID: 0}

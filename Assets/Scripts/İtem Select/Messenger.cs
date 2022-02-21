@@ -9,6 +9,9 @@ public class Messenger : MonoBehaviour
     public string mesage;
     public Text text;
     public GameObject image;
+    public Transform target;
+    public GameObject obj;
+
     private void Start() {
     render=GetComponent<Renderer>();
     }
@@ -17,6 +20,7 @@ public class Messenger : MonoBehaviour
         text.text=mesage;
         image.SetActive(true); 
         render.enabled=true;
+        obj.transform.position=target.position;
     }
     public void CloseMessenger()
     {
