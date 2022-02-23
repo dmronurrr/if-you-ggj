@@ -27,6 +27,8 @@ public class Pill : MonoBehaviour
             if(Input.GetMouseButton(0))
             { 
             levelController.StartCoroutine(nameof(levelController.NextLevel));
+            LevelStats levelStats=GameObject.Find("SelectionManager").GetComponent<LevelStats>();
+            levelStats.SaveSystem();
             render.enabled=false;
             isHolding=false;
             }

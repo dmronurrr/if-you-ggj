@@ -4581,7 +4581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534584538a7eaa042b27d0a7c78791e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 3
+  index: 2
 --- !u!114 &1730049334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5571,6 +5571,7 @@ GameObject:
   - component: {fileID: 1960245836}
   - component: {fileID: 1960245837}
   - component: {fileID: 1960245835}
+  - component: {fileID: 1960245838}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
@@ -5590,8 +5591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4520a59d8d4f2a445bda8a06b27106a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectableTag: Selectable
   holdSomething: 0
+  selectableTag: Selectable
   maxDistance: 5
   messenger: {fileID: 0}
   hitObj: {fileID: 0}
@@ -5622,6 +5623,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abfbc6bfd640e049b3f966c4db11792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1960245838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960245834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c5383a285c2b84bb65152c1a16e344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 1730049333}
+  currentLevel: 0
 --- !u!1 &1978359608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6111,6 +6126,8 @@ MonoBehaviour:
   mesage: When i take a pill all my strength comes back
   text: {fileID: 92319305}
   image: {fileID: 1602230990}
+  target: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!23 &3888965581404241086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6265,6 +6282,8 @@ MonoBehaviour:
   mesage: I like to catch snakes
   text: {fileID: 92319305}
   image: {fileID: 1602230990}
+  target: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!23 &5874085457691839387
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6358,6 +6377,8 @@ MonoBehaviour:
     left
   text: {fileID: 92319305}
   image: {fileID: 1602230990}
+  target: {fileID: 0}
+  obj: {fileID: 0}
 --- !u!1001 &7716436634473949249
 PrefabInstance:
   m_ObjectHideFlags: 0

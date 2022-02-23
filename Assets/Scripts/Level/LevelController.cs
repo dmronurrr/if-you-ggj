@@ -14,7 +14,9 @@ public class LevelController: MonoBehaviour
     {
         PlayerPrefs.DeleteKey("Ending");
         PlayerPrefs.DeleteKey("LevelIndex");
+        PlayerPrefs.DeleteKey("levelsPlayed");
         SceneManager.LoadScene("Scene1");
+
     }
     public void Quit()
     {
@@ -28,7 +30,10 @@ public class LevelController: MonoBehaviour
         playerController.speed=0;
         mouse.enabled=false;
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);   
+        int levelInt=SceneManager.GetActiveScene().buildIndex == 3 ? 0 : SceneManager.GetActiveScene().buildIndex +1;
+        SceneManager.LoadScene(levelInt); 
+        PlayerPrefs.DeleteKey("LevelIndex");
+        PlayerPrefs.SetInt("LevelIndex",levelInt);
     }
     public void LastLevel()
     {

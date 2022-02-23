@@ -818,6 +818,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.60993046, y: 0.67585164, z: 0.7092079}
   m_Center: {x: -0.00000015254874, y: 0.37888223, z: 1.0582094}
+--- !u!1 &211599656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5088778638876968151, guid: 44bb6b2f462ca334d8440dfffc735732, type: 3}
+  m_PrefabInstance: {fileID: 848400836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &247116894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,7 +1756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534584538a7eaa042b27d0a7c78791e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
+  index: 1
 --- !u!1 &487803522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,6 +1819,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 27.076504, y: 16.69172, z: 26.395218}
   m_Center: {x: -0.6112046, y: -0.25157547, z: -1.6562977}
+--- !u!4 &505305696 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 910409429896108962, guid: 44bb6b2f462ca334d8440dfffc735732, type: 3}
+  m_PrefabInstance: {fileID: 848400836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &506546503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2979,6 +2989,7 @@ GameObject:
   - component: {fileID: 828210108}
   - component: {fileID: 828210107}
   - component: {fileID: 828210109}
+  - component: {fileID: 828210110}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
@@ -3030,6 +3041,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abfbc6bfd640e049b3f966c4db11792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &828210110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828210106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c5383a285c2b84bb65152c1a16e344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 458646019}
+  currentLevel: 0
 --- !u!1001 &848400836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3672,6 +3697,8 @@ MonoBehaviour:
     radio.  And i hate pianos!    Olivia
   text: {fileID: 1780184205}
   image: {fileID: 1757815576}
+  target: {fileID: 505305696}
+  obj: {fileID: 211599656}
 --- !u!54 &1055628845
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5654,6 +5681,8 @@ MonoBehaviour:
   mesage: I hate radio's so much. Please dont open radio
   text: {fileID: 1780184205}
   image: {fileID: 1757815576}
+  target: {fileID: 100135931}
+  obj: {fileID: 211599656}
 --- !u!54 &1768199392
 Rigidbody:
   m_ObjectHideFlags: 0

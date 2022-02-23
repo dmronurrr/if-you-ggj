@@ -15,5 +15,7 @@ public class Piano : MonoBehaviour
             if(!audioSource.isPlaying)
             audioSource.Play(); 
             levelController.StartCoroutine(nameof(levelController.NextLevel)); 
+            LevelStats levelStats=GameObject.Find("SelectionManager").GetComponent<LevelStats>();
+            levelStats.SaveSystem();
     } 
 }
